@@ -521,22 +521,24 @@ export function Sidebar() {
             <ChevronDown className="size-3 shrink-0 opacity-50" />
           </DropdownMenuTrigger>
           <DropdownMenuContent align="start" side="top" sideOffset={4}>
-            <DropdownMenuLabel>Model</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            {models.map((m) => (
-              <DropdownMenuItem
-                key={m.id}
-                onClick={() => setCurrentModel(m.id)}
-              >
-                <span className="truncate">{m.name || m.id}</span>
-                {m.id === currentModel && (
-                  <span className="ml-auto text-[10px] text-muted-foreground">✓</span>
-                )}
-              </DropdownMenuItem>
-            ))}
-            {models.length === 0 && (
-              <DropdownMenuItem disabled>No models available</DropdownMenuItem>
-            )}
+            <DropdownMenuGroup>
+              <DropdownMenuLabel>Model</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              {models.map((m) => (
+                <DropdownMenuItem
+                  key={m.id}
+                  onClick={() => setCurrentModel(m.id)}
+                >
+                  <span className="truncate">{m.name || m.id}</span>
+                  {m.id === currentModel && (
+                    <span className="ml-auto text-[10px] text-muted-foreground">✓</span>
+                  )}
+                </DropdownMenuItem>
+              ))}
+              {models.length === 0 && (
+                <DropdownMenuItem disabled>No models available</DropdownMenuItem>
+              )}
+            </DropdownMenuGroup>
           </DropdownMenuContent>
         </DropdownMenu>
 
@@ -550,22 +552,24 @@ export function Sidebar() {
             <ChevronDown className="size-3 shrink-0 opacity-50" />
           </DropdownMenuTrigger>
           <DropdownMenuContent align="start" side="top" sideOffset={4}>
-            <DropdownMenuLabel>Workspace</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            {workspaces.map((w) => (
-              <DropdownMenuItem
-                key={w.name}
-                onClick={() => setCurrentWorkspace(w.name)}
-              >
-                <span className="truncate">{w.name}</span>
-                {w.name === currentWorkspace && (
-                  <span className="ml-auto text-[10px] text-muted-foreground">✓</span>
-                )}
-              </DropdownMenuItem>
-            ))}
-            {workspaces.length === 0 && (
-              <DropdownMenuItem disabled>No workspaces available</DropdownMenuItem>
-            )}
+            <DropdownMenuGroup>
+              <DropdownMenuLabel>Workspace</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              {workspaces.map((w) => (
+                <DropdownMenuItem
+                  key={w.name}
+                  onClick={() => setCurrentWorkspace(w.name)}
+                >
+                  <span className="truncate">{w.name}</span>
+                  {w.name === currentWorkspace && (
+                    <span className="ml-auto text-[10px] text-muted-foreground">✓</span>
+                  )}
+                </DropdownMenuItem>
+              ))}
+              {workspaces.length === 0 && (
+                <DropdownMenuItem disabled>No workspaces available</DropdownMenuItem>
+              )}
+            </DropdownMenuGroup>
           </DropdownMenuContent>
         </DropdownMenu>
 
